@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Nishitha, a 3rd semester B.Tech Computer Science and Engineering student.">
+  <title>Nishitha | Computer Science Student Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0c1b2e;
+      --card: rgba(15, 35, 58, 0.72);
+      --card-solid: #10243b;
+      --text: #edf6ff;
+      --muted: #a8bdd2;
+      --primary: #55c2ff;
+      --primary-dark: #238dcc;
+      --accent: #7c6cff;
+      --border: rgba(151, 197, 230, 0.18);
+      --shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(85, 194, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(124, 108, 255, 0.12), transparent 28%),
+        linear-gradient(145deg, #050c16 0%, var(--bg) 50%, #09182a 100%);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 12, 22, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.93rem;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+      padding: 100px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(85, 194, 255, 0.25);
+      background: rgba(85, 194, 255, 0.08);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: #55c2ff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #55c2ff;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.3rem);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 22px;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(90deg, var(--primary), #a39aff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-buttons {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 21px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      border: 1px solid var(--border);
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #7c9cff);
+      color: #06101d;
+      border: none;
+      box-shadow: 0 12px 30px rgba(85, 194, 255, 0.16);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 78px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 680px;
+      margin-top: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.5fr;
+      gap: 22px;
+    }
+
+    .profile-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .profile-card {
+      padding: 30px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(85,194,255,.2), rgba(124,108,255,.2));
+      border: 1px solid rgba(85,194,255,.25);
+      color: var(--primary);
+      font-size: 1.7rem;
+      font-weight: 900;
+    }
+
+    .profile-card h3 {
+      margin-top: 22px;
+      font-size: 1.45rem;
+    }
+
+    .profile-card p,
+    .card p {
+      color: var(--muted);
+    }
+
+    .about-text {
+      padding: 32px;
+    }
+
+    .about-text p + p {
+      margin-top: 16px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      min-height: 340px;
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      font-size: 0.93rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: rgba(85, 194, 255, 0.08);
+      color: #bfeaff;
+      font-size: 0.75rem;
+      border: 1px solid rgba(85, 194, 255, 0.12);
+    }
+
+    .project-link {
+      margin-top: auto;
+      padding-top: 24px;
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill {
+      padding: 11px 15px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #d9e9f7;
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+
+    .journey {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .journey-step {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding-top: 22px;
+    }
+
+    .journey-card {
+      padding: 24px 26px;
+    }
+
+    .journey-card h3 {
+      margin-bottom: 7px;
+      font-size: 1.12rem;
+    }
+
+    .goal {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goal::after {
+      content: "</>";
+      position: absolute;
+      right: 35px;
+      bottom: -20px;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(85, 194, 255, 0.045);
+    }
+
+    .goal p {
+      max-width: 760px;
+      font-size: 1.08rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 32px;
+    }
+
+    .contact-card p {
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 590px;
+        padding-top: 75px;
+      }
+
+      h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .journey-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .journey-step {
+        padding-top: 0;
+        margin-left: 3px;
+        margin-bottom: 5px;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      section {
+        padding: 58px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .profile-card,
+      .about-text,
+      .project-card,
+      .journey-card,
+      .goal,
+      .contact-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">Nishitha<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#goal">Goal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME / INTRODUCTION -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">B.Tech CSE · 3rd Semester</div>
+
+        <h1>
+          Hi, I'm <span class="highlight">Nishitha.</span>
+        </h1>
+
+        <p>
+          A Computer Science and Engineering student interested in programming,
+          problem solving, software development, and emerging technologies.
+          I learn by building, practicing, collaborating, and continuously improving.
+        </p>
+
+        <div class="hero-buttons">
+          <!-- Replace the placeholder URL with your actual GitHub profile/repository URL -->
+          <a class="btn btn-primary" href="https://github.com/nishithashekhar04-beep" target="_blank" rel="noopener">
+            View GitHub
+          </a>
+          <a class="btn btn-secondary" href="#projects">
+            Explore My Work ↓
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">01 · About Me</div>
+          <h2>Learning through practice.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="profile-card">
+            <div>
+              <div class="avatar">N</div>
+              <h3>Nishitha</h3>
+              <p>B.Tech Computer Science and Engineering · 3rd Semester</p>
+            </div>
+            <p>
+              Student developer building a foundation in programming,
+              collaboration, version control, and problem solving.
+            </p>
+          </div>
+
+          <div class="card about-text">
+            <p>
+              I am a 3rd semester B.Tech Computer Science and Engineering student
+              with an interest in programming, problem solving, software development,
+              and emerging technologies.
+            </p>
+
+            <p>
+              I am developing my technical skills through practical activities,
+              coding practice, GitHub projects, and collaborative learning. My
+              learning approach focuses on understanding concepts by applying them
+              to real coding tasks and gradually building stronger development habits.
+            </p>
+
+            <p>
+              This portfolio highlights my current learning journey, technical
+              skills, and the projects and activities that are helping me grow as
+              a computer science student.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">02 · Projects & Practice</div>
+          <h2>Things I've worked on.</h2>
+          <p>
+            A collection of practical learning activities and coding practice
+            completed as part of my development journey.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 01</div>
+            <h3>Hello World / Development Environment</h3>
+            <p>
+              Set up a C/C++ development environment using Visual Studio Code
+              and the required tools. Created and successfully executed a
+              Hello World program while learning the basics of compiling and
+              running programs.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">C</span>
+              <span class="tag">C++</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Development Setup</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/nishithashekhar04-beep/hello-world-c"
+               target="_blank" rel="noopener">
+              GitHub Repository ↗
+            </a>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 02</div>
+            <h3>Collaborative Coding</h3>
+            <p>
+              Participated in a collaborative coding activity using GitLens
+              and Live Share. Learned how developers can collaborate on code,
+              track changes, and work together using Git and GitHub.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitLens</span>
+              <span class="tag">Live Share</span>
+            </div>
+
+          </article>
+
+          <article class="card project-card">
+            <div class="project-number">PROJECT 03</div>
+            <h3>LeetCode Practice</h3>
+            <p>
+              Created a GitHub repository called <strong>leetcode-solutions</strong>
+              to solve and document coding problems. Practice includes arrays,
+              strings, searching, and basic algorithms.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">LeetCode</span>
+              <span class="tag">C</span>
+              <span class="tag">Arrays</span>
+              <span class="tag">Strings</span>
+              <span class="tag">Algorithms</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/nishithashekhar04-beep/leetcode-solutions"
+               target="_blank" rel="noopener">
+              leetcode-solutions ↗
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">03 · Skills</div>
+          <h2>My current toolkit.</h2>
+          <p>
+            Technical skills and tools I am currently learning and using.
+          </p>
+        </div>
+
+        <div class="skills-wrap">
+          <span class="skill">C Programming</span>
+          <span class="skill">C++ Basics</span>
+          <span class="skill">Python Basics</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Visual Studio Code</span>
+          <span class="skill">LeetCode</span>
+          <span class="skill">Basic Data Structures & Algorithms</span>
+          <span class="skill">Collaborative Development</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNING JOURNEY -->
+    <section id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">04 · Learning Journey</div>
+          <h2>From first program to consistent practice.</h2>
+        </div>
+
+        <div class="journey">
+
+          <div class="journey-item">
+            <div class="journey-step">01 · START</div>
+            <div class="card journey-card">
+              <h3>Development Environment</h3>
+              <p>
+                Set up the C/C++ development environment in Visual Studio Code
+                and learned how programs are compiled and executed.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-item">
+            <div class="journey-step">02 · COLLAB</div>
+            <div class="card journey-card">
+              <h3>Collaborative Development</h3>
+              <p>
+                Explored GitLens and Live Share to understand collaborative
+                coding, change tracking, and Git/GitHub workflows.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-item">
+            <div class="journey-step">03 · PRACTICE</div>
+            <div class="card journey-card">
+              <h3>Problem Solving</h3>
+              <p>
+                Started maintaining the <strong>leetcode-solutions</strong>
+                repository to practice coding problems involving arrays,
+                strings, searching, and basic algorithms.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-item">
+            <div class="journey-step">04 · NEXT</div>
+            <div class="card journey-card">
+              <h3>Keep Building</h3>
+              <p>
+                Continue strengthening programming fundamentals, problem-solving
+                ability, development skills, and practical project experience.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER GOAL -->
+    <section id="goal">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">05 · Career Goal</div>
+          <h2>Building toward a software career.</h2>
+        </div>
+
+        <div class="card goal">
+          <p>
+            My goal is to improve my programming and problem-solving skills,
+            build practical projects, create a strong software portfolio, and
+            gain internship experience. I want to keep learning consistently
+            and use each project and coding challenge as an opportunity to
+            develop stronger technical and collaborative skills.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">06 · Contact</div>
+          <h2>Let's connect.</h2>
+          <p>
+            You can add your preferred contact details and professional links below.
+          </p>
+        </div>
+
+        <div class="card contact-card">
+          <div>
+            <h3>Nishitha</h3>
+            <p>3rd Semester · B.Tech Computer Science and Engineering</p>
+          </div>
+
+          <div class="hero-buttons" style="margin-top:0;">
+            <!-- Replace these placeholders with your actual links -->
+            <a class="btn btn-primary"
+               href="https://github.com/nishithashekhar04-beep"
+               target="_blank" rel="noopener">
+              GitHub ↗
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Nishitha · Personal Portfolio
+    </div>
+  </footer>
+
+</body>
+</html>
